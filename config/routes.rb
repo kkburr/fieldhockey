@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  root 'static_pages#home'
+  resources :programs
+
+  resources :players
+
+  resources :users
+
+  root 'static_pages#home', :as => 'home'
 
   get 'static_pages/about'
 

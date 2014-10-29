@@ -11,6 +11,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20141029181023) do
+
+  create_table "players", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "usfha_number"
+    t.string   "school"
+    t.integer  "grade"
+    t.date     "birthday"
+    t.string   "allergies"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "programs", force: true do |t|
+    t.integer  "grade"
+    t.string   "type"
+    t.string   "dates"
+    t.string   "times"
+    t.string   "venue"
+    t.string   "county"
+    t.string   "coach"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "county"
+    t.string   "high_school"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
