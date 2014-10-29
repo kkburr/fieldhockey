@@ -46,7 +46,7 @@ end
 group :development, :test do
 	gem 'rspec-rails'
 	gem 'guard-rspec'
-	gem 'factory_girl_rails'	
+	gem 'factory_girl_rails', :require => false	
 	# Use sqlite3 as the database for Active Record
 	gem 'sqlite3', '1.3.9'
 	gem 'pry'
