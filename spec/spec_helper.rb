@@ -23,9 +23,6 @@ require 'factory_girl_rails'
 
 RSpec.configure do |config|
 
-  config.generators.helpers = false
-  config.generators.views = false
-
   config.include FactoryGirl::Syntax::Methods
 
   # config.fixture_path = "#{::Rails.root}/spec/fixtures"
