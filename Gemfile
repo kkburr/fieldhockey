@@ -38,7 +38,10 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 
-gem 'pry'
+
+group :production do
+	gem 'pg'
+end
 
 group :development, :test do
 	gem 'rspec-rails'
@@ -46,6 +49,7 @@ group :development, :test do
 	gem 'factory_girl_rails'	
 	# Use sqlite3 as the database for Active Record
 	gem 'sqlite3', '1.3.9'
+	gem 'pry'
 end
 
 group :test do
