@@ -40,7 +40,7 @@ gem 'bcrypt', '~> 3.1.7'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-
+gem 'pry-rails', :group => :development
 
 group :production do
 	gem 'pg'
@@ -53,7 +53,6 @@ group :development, :test do
 	gem 'factory_girl_rails', :require => false	
 	# Use sqlite3 as the database for Active Record
 	gem 'sqlite3', '1.3.9'
-	gem 'pry'
 end
 
 group :test do
