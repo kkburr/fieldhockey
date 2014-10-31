@@ -30,7 +30,6 @@ class UsersController < ApplicationController
       if @user.save
         format.html { 
           log_in @user
-          remember user
           flash[:success] = 'Welcome to Colorado Field Hockey!' 
           redirect_to root_path }
         format.json { render :show, status: :created, location: @user }
