@@ -24,6 +24,14 @@
     <%= f.text_field :email %>
   </div>
   <div class="field">
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation, "Confirmation" %><br>
+    <%= f.password_field :password_confirmation %>
+  </div>
+<!--   <div class="field">
     <%= f.label :phone %><br>
     <%= f.text_field :phone %>
   </div>
@@ -34,8 +42,8 @@
   <div class="field">
     <%= f.label 'What High School do you expect your children to attend?' %><br>
     <%= f.text_field :high_school %>
-  </div>
+  </div> -->
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Create My Account", class: "btn btn-primary"%>
   </div>
 <% end %>

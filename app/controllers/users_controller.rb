@@ -28,7 +28,9 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { 
+          flash[:success] = 'Welcome to Colorado Field Hockey!' 
+          redirect_to root_path }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -69,6 +71,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :phone, :county, :high_school)
+      params.require(:user).permit(:first_name, :last_name, :email, :phone, :county, 
+                                  :high_school, :password, :password_confirmation)
     end
 end
