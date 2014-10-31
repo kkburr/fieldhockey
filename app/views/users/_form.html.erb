@@ -1,5 +1,6 @@
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
+    <%= render 'shared/error_messages' %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
@@ -31,19 +32,43 @@
     <%= f.label :password_confirmation, "Confirmation" %><br>
     <%= f.password_field :password_confirmation %>
   </div>
-<!--   <div class="field">
-    <%= f.label :phone %><br>
-    <%= f.text_field :phone %>
-  </div>
-  <div class="field">
-    <%= f.label 'County You Live in' %><br>
-    <%= f.select :county, %w(Adams Arapahoe Broomfield Boulder Denver Douglas Elbert Jefferson Summit) %>
-  </div>
-  <div class="field">
-    <%= f.label 'What High School do you expect your children to attend?' %><br>
-    <%= f.text_field :high_school %>
-  </div> -->
-  <div class="actions">
-    <%= f.submit "Create My Account", class: "btn btn-primary"%>
-  </div>
+  <% if logged_in? %>
+    <h3>A couple more questions...</h3>
+    <div class="field">      
+      <label>How do you prefer to be notified if a program is cancelled or rescheduled?</label><br>
+      <input type="radio" name="contact" id="text">Text Message<br>
+      <input type="radio" name="contact" id="email">Email<br>
+    </div>
+    <div class="field" id="phone">
+      <%= f.label :phone %><br>
+      <%= f.text_field :phone %>
+    </div>
+    <div class="field">
+      <%= f.label 'County You Live in' %><br>
+      <%= f.select :county, %w(Denver Adams Arapahoe Broomfield Boulder Clear\ Creek Douglas Elbert Gilpin Jefferson Park Summit Weld) %>
+    </div>
+    <div class="field">
+      <%= f.label 'What High School do you expect your children to attend?' %><br>
+      <%= f.text_field :high_school %>
+    </div> 
+    <div class="actions">
+      <%= f.submit "Update My Account", class: "btn btn-primary"%>
+    </div> 
+  <% else %>
+    <div class="actions">
+      <%= f.submit "Create My Account", class: "btn btn-primary"%>
+    </div>
+  <% end %>
 <% end %>
+
+<script> 
+$(document).ready(function(){
+  $("#email").on("click", function(){
+    $("#phone").hide()
+  })
+    $("#text").on("click", function(){
+    $("#phone").show()
+  })
+})
+
+</script>
