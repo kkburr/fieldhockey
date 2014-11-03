@@ -2,6 +2,7 @@
 <h1>Log in</h1>
 
 <div class="row">
+
   <div class="col-md-6">
     <%= form_for(:session, url: login_path) do |f| %>
 
@@ -20,6 +21,21 @@
       <%= f.submit "Log in", class: "btn btn-primary" %>
     <% end %>
 
-    <p class='margin-fifteen'>New user? <%= link_to "Sign up now!", new_user_path %></p>
+    <div class="margin-forty">
+      <h3> OR - Log in with Facebook </h5>
+    </div>
+    <!--
+      Below we include the Login Button social plugin. This button uses
+      the JavaScript SDK to present a graphical Login button that triggers
+      the FB.login() function when clicked.
+    -->
+
+    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+    </fb:login-button>
+
+    <div id="status">
+    </div>
+
+    <!-- <p class='margin-fifteen'>New user? <%= link_to "Sign up now!", new_user_path %></p> -->
   </div>
 </div>
