@@ -115,6 +115,14 @@ footer {
   margin-bottom: 40px;
 }
 
+th {
+  padding: 20px;
+}
+
+td {
+  padding: 20px;
+}
+
 .field_with_errors {
   @extend .has-error;
   .form-control {

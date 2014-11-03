@@ -2,8 +2,13 @@
 	<h1>Colorado Youth Field Hockey</h1>
 	<p>Youth Field Hockey in the Denver Metro Area</p>
 </div>
-<% if logged_in? %>
+<% if current_user.admin? %>
+	<h2> Programs </h2>
+	<%= render 'programs/index_of_programs' %>
+<% elsif logged_in? %>
 	<h2> My Players: </h2>
+	<%= link_to "(add new players)", new_player_path %>
+	<%= render 'players/index_of_players' %>
 <% end %>
 <!-- <div
   class="fb-like"

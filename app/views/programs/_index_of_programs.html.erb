@@ -1,0 +1,35 @@
+<table>
+  <thead>
+    <tr>
+      <th>Grade</th>
+      <th>Type</th>
+      <th>Dates</th>
+      <th>Times</th>
+      <th>Venue</th>
+      <th>County</th>
+      <th>Coach</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @programs.each do |program| %>
+      <tr>
+        <td><%= program.grade %></td>
+        <td><%= program.type %></td>
+        <td><%= program.dates %></td>
+        <td><%= program.times %></td>
+        <td><%= program.venue %></td>
+        <td><%= program.county %></td>
+        <td><%= program.coach %></td>
+        <td><%= link_to 'Show', program %></td>
+        <td><%= link_to 'Edit', edit_program_path(program) %></td>
+        <td><%= link_to 'Destroy', program, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Add New Program', new_program_path %>
