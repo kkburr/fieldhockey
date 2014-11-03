@@ -2,7 +2,7 @@
 	<h1>Colorado Youth Field Hockey</h1>
 	<p>Youth Field Hockey in the Denver Metro Area</p>
 </div>
-<% if current_user.admin? %>
+<% if logged_in? && current_user.admin? %>
 	<h2> Programs </h2>
 	<%= render 'programs/index_of_programs' %>
 <% elsif logged_in? %>
